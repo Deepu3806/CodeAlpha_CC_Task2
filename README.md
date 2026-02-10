@@ -56,8 +56,8 @@ The system was tested using common SQL injection inputs such as:
 │── index.html
 │── login.php
 │── register.php
-│── config.php
-│── database.sql
+│── encrypt.php
+│── db.php
 
 ▶️ How to Run the Project
 
