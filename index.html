@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Cloud Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .container {
+    background: white;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    padding: 25px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .tabs button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #eee;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .tabs button.active {
+    background: #1d2671;
+    color: white;
+  }
+
+  .form {
+    display: none;
+  }
+
+  .form.active {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  button.submit {
+    width: 100%;
+    padding: 10px;
+    background: #c33764;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button.submit:hover {
+    opacity: 0.9;
+  }
+
+  .note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Secure Cloud System</h2>
+
+  <div class="tabs">
+    <button id="regTab" class="active" onclick="showRegister()">Register</button>
+    <button id="logTab" onclick="showLogin()">Login</button>
+  </div>
+
+  <!-- Registration Form -->
+  <form class="form active" id="registerForm" action="register.php" method="post">
+    <input type="text" name="username" placeholder="Enter Username" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <button class="submit" type="submit">Register Securely</button>
+  </form>
+
+  <!-- Login Form -->
+  <form class="form" id="loginForm" action="login.php" method="post">
+    <input type="text" name="username" placeholder="Enter Username" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <button class="submit" type="submit">Login Securely</button>
+  </form>
+
+  <div class="note">
+    AES-256 Encryption • SQL Injection Protected
+  </div>
+</div>
+
+<script>
+  function showRegister() {
+    document.getElementById("registerForm").classList.add("active");
+    document.getElementById("loginForm").classList.remove("active");
+    document.getElementById("regTab").classList.add("active");
+    document.getElementById("logTab").classList.remove("active");
+  }
+
+  function showLogin() {
+    document.getElementById("loginForm").classList.add("active");
+    document.getElementById("registerForm").classList.remove("active");
+    document.getElementById("logTab").classList.add("active");
+    document.getElementById("regTab").classList.remove("active");
+  }
+</script>
+
+</body>
+</html>
